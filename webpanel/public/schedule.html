@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jarchi 📣</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="brand"><span class="brand-dot"></span><span class="brand-name" data-i18n="app"></span></div>
+      <nav class="mainnav"></nav>
+    </div>
+    <div class="topbar-right">
+      <span class="clock" id="clock">--:--:--</span>
+      <select id="langSelect" class="lang-select"></select>
+      <button class="theme-toggle" id="themeToggle">☀️</button>
+      <button id="logoutBtn" style="font-size:12px;" data-i18n="logout"></button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="card">
+      <h2 data-i18n="bells_files"></h2>
+      <div class="form-inline">
+        <input type="file" id="bellFiles" multiple accept=".mp3,.wav,.ogg" />
+        <button id="uploadBellsBtn" class="btn-primary" data-i18n="upload_bell"></button>
+      </div>
+      <div id="bellsList"></div>
+    </div>
+
+    <div class="card">
+      <h2 data-i18n="add_schedule"></h2>
+      <label data-i18n="sch_name"></label>
+      <input type="text" id="schName" />
+      <label data-i18n="sch_time"></label>
+      <div id="schTimePicker"></div>
+      <label data-i18n="sch_days"></label>
+      <div class="day-picker" id="dayPicker"></div>
+      <label data-i18n="sch_bell"></label>
+      <select id="schBell"></select>
+      <button id="addScheduleBtn" class="btn-primary btn-block" data-i18n="add_schedule"></button>
+      <div class="error-msg" id="schMsg"></div>
+    </div>
+
+    <div class="card">
+      <h2>🕌 <span data-i18n="azan_title"></span></h2>
+      <label><input type="checkbox" id="azanEnabled" style="width:auto;" /> <span data-i18n="azan_on"></span></label>
+      <div class="day-picker" style="margin-top:8px;">
+        <label><input type="checkbox" id="azanFajr" /><span data-i18n="fajr"></span></label>
+        <label><input type="checkbox" id="azanDhuhr" /><span data-i18n="dhuhr"></span></label>
+        <label><input type="checkbox" id="azanMaghrib" /><span data-i18n="maghrib"></span></label>
+      </div>
+      <label data-i18n="azan_file"></label>
+      <select id="azanBell"></select>
+      <label data-i18n="country"></label>
+      <select id="azanCountry"></select>
+      <label data-i18n="city"></label>
+      <select id="azanCity"></select>
+      <label data-i18n="custom_coords"></label>
+      <div class="form-inline">
+        <input type="text" id="azanLat" placeholder="lat" style="direction:ltr;" />
+        <input type="text" id="azanLng" placeholder="lng" style="direction:ltr;" />
+      </div>
+      <button id="saveAzanBtn" class="btn-primary btn-block" data-i18n="save"></button>
+      <div class="status-line" id="azanTimes"></div>
+      <div class="error-msg" id="azanMsg"></div>
+    </div>
+
+    <div class="card">
+      <h2>⏰ <span data-i18n="src_sched_title"></span></h2>
+      <label data-i18n="sch_time"></label>
+      <div id="ssTimePicker"></div>
+      <label data-i18n="sch_days"></label>
+      <div class="day-picker" id="ssDayPicker"></div>
+      <label data-i18n="select_source"></label>
+      <select id="ssSource">
+        <option value="radio" data-i18n="src_radio"></option>
+        <option value="playlist" data-i18n="src_playlist"></option>
+        <option value="spotify">🎧 Spotify</option>
+        <option value="off" data-i18n="src_off"></option>
+      </select>
+      <div id="ssStationWrap">
+        <label data-i18n="stations_list"></label>
+        <select id="ssStation"></select>
+      </div>
+      <button id="addSsBtn" class="btn-primary btn-block" data-i18n="add"></button>
+      <div id="ssList" style="margin-top:14px;"></div>
+    </div>
+
+    <div class="card full">
+      <h2 data-i18n="sch_title"></h2>
+      <div id="schedulesList"></div>
+    </div>
+  </div>
+<script src="/js/common.js"></script>
+<script src="/js/schedule.js"></script>
+</body>
+</html>
