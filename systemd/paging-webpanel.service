@@ -1,0 +1,21 @@
+[Unit]
+Description=Jarchi - Web Panel
+After=network.target paging-liquidsoap.service
+Wants=paging-liquidsoap.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=paging
+Group=paging
+SupplementaryGroups=asterisk audio
+WorkingDirectory=/opt/jarchi/webpanel
+EnvironmentFile=/opt/jarchi/webpanel/.env
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=5
+StandardOutput=append:/var/log/paging/webpanel.out.log
+StandardError=append:/var/log/paging/webpanel.err.log
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,21 @@
+{
+  "name": "paging-webpanel",
+  "version": "4.7.0",
+  "private": true,
+  "description": "پنل وب کنترل سیستم پیج و پخش موسیقی/رادیو",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "multer": "^1.4.5-lts.1",
+    "adhan": "^4.4.3"
+  },
+  "license": "AGPL-3.0-only"
+}

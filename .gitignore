@@ -1,0 +1,6 @@
+node_modules/
+webpanel/data/
+webpanel/.env
+*.log
+*.zip
+.DS_Store
