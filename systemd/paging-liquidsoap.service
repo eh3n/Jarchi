@@ -1,0 +1,21 @@
+[Unit]
+Description=Jarchi - Audio Engine (Liquidsoap)
+After=network-online.target sound.target
+Wants=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=paging
+Group=paging
+SupplementaryGroups=audio
+ExecStartPre=+/bin/bash /opt/jarchi/scripts/setup-fifo.sh
+ExecStart=/usr/bin/liquidsoap /opt/jarchi/liquidsoap/radio.liq
+Nice=-10
+Restart=always
+RestartSec=5
+StandardOutput=append:/var/log/paging/liquidsoap.out.log
+StandardError=append:/var/log/paging/liquidsoap.err.log
+
+[Install]
+WantedBy=multi-user.target

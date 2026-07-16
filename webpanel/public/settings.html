@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jarchi 📣</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="brand"><span class="brand-dot"></span><span class="brand-name" data-i18n="app"></span></div>
+      <nav class="mainnav"></nav>
+    </div>
+    <div class="topbar-right">
+      <span class="clock" id="clock">--:--:--</span>
+      <select id="langSelect" class="lang-select"></select>
+      <button class="theme-toggle" id="themeToggle">☀️</button>
+      <button id="logoutBtn" style="font-size:12px;" data-i18n="logout"></button>
+    </div>
+  </div>
+  <div class="container">
+
+    <div class="card full">
+      <h2 data-i18n="sip_title"></h2>
+      <label data-i18n="sip_mode"></label>
+      <select id="sipMode">
+        <option value="A" id="optModeA"></option>
+        <option value="B" id="optModeB"></option>
+      </select>
+      <div id="pbxHostWrap">
+        <label data-i18n="pbx_host"></label>
+        <input type="text" id="sipPbxHost" style="direction:ltr;" placeholder="192.168.1.10" />
+      </div>
+      <label data-i18n="extension"></label>
+      <input type="text" id="sipExtension" style="direction:ltr;" placeholder="100" />
+      <label data-i18n="sip_port"></label>
+      <input type="number" id="sipPort" style="direction:ltr;" placeholder="5060" min="1024" max="65535" />
+      <label><span data-i18n="sip_pass"></span> <span id="sipPassHint" class="row-sub"></span></label>
+      <input type="password" id="sipPassword" data-i18n-ph="keep_empty" />
+      <label data-i18n="max_page"></label>
+      <input type="number" id="sipMaxSec" min="10" max="600" value="120" style="direction:ltr;" />
+      <button id="saveSipBtn" class="btn-primary btn-block" data-i18n="apply_sip"></button>
+      <div class="error-msg" id="sipMsg"></div>
+      <div style="margin-top:14px;"><button id="sipStatusBtn" style="font-size:12px;" data-i18n="check_reg"></button></div>
+      <pre class="console" id="sipStatusOut" style="display:none; margin-top:10px;"></pre>
+    </div>
+
+    <div class="card">
+      <h2 data-i18n="audio_title"></h2>
+      <label data-i18n="audio_dev"></label>
+      <select id="audioDevice"></select>
+      <label style="margin-top:16px;"><span data-i18n="duck_title"></span></label>
+      <input type="range" id="duckLevel" min="0" max="90" step="1" style="width:100%;" />
+      <div class="status-line"><span id="duckValue"></span>% — <span data-i18n="duck_hint"></span></div>
+      <div style="display:flex; gap:8px; margin-top:12px; flex-wrap:wrap;">
+        <button id="saveAudioBtn" class="btn-primary" data-i18n="save_restart"></button>
+        <button id="testSoundBtn" data-i18n="test_sound"></button>
+        <button id="refreshDevBtn" data-i18n="refresh_dev"></button>
+      </div>
+      <div class="error-msg" id="audioMsg"></div>
+      <pre class="console" id="aplayRaw" style="display:none; margin-top:10px;"></pre>
+    </div>
+
+    <div class="card">
+      <h2 data-i18n="tz_title"></h2>
+      <select id="timezoneSelect"></select>
+      <button id="saveTzBtn" class="btn-primary btn-block" data-i18n="save"></button>
+      <div class="error-msg" id="tzMsg"></div>
+
+      <h2 style="margin-top:26px;" data-i18n="system_title"></h2>
+      <div class="status-line" id="svcStatus"></div>
+      <div style="display:flex; gap:8px; margin-top:12px; flex-wrap:wrap;">
+        <button id="restartEngineBtn" data-i18n="restart_engine"></button>
+        <button id="rebootBtn" class="btn-danger" data-i18n="reboot"></button>
+        <button id="diagBtn" data-i18n="diag"></button>
+        <button id="backupBtn" data-i18n="backup"></button>
+      </div>
+      <div class="error-msg" id="sysMsg"></div>
+      <pre class="console" id="diagOut" style="display:none; margin-top:10px; max-height:340px; overflow:auto;"></pre>
+    </div>
+
+    <div class="card full">
+      <h2 data-i18n="pass_title"></h2>
+      <div class="form-inline">
+        <input type="password" id="currentPassword" data-i18n-ph="cur_pass" />
+        <input type="password" id="newPassword" data-i18n-ph="new_pass" />
+        <button id="changePasswordBtn" class="btn-primary" data-i18n="save"></button>
+      </div>
+      <div class="error-msg" id="passwordMsg"></div>
+    </div>
+
+  </div>
+<script src="/js/common.js"></script>
+<script src="/js/settings.js"></script>
+</body>
+</html>
